@@ -1,7 +1,7 @@
 # Relay 中转 · 让电脑用上手机的 VPN
 
 [![最新版](https://img.shields.io/github/v/release/DeeJayX/relay?label=%E6%9C%80%E6%96%B0%E7%89%88&color=c98a3e)](https://github.com/DeeJayX/relay/releases/latest)
-[![平台](https://img.shields.io/badge/%E5%B9%B3%E5%8F%B0-iPhone%20%C2%B7%20Android%20%2B%20macOS%20%C2%B7%20Windows-4b5563)](#系统要求)
+[![平台](https://img.shields.io/badge/%E5%B9%B3%E5%8F%B0-iPhone%20%2F%20Android%20%2F%20macOS%20%2F%20Windows-4b5563)](#系统要求)
 [![协议](https://img.shields.io/badge/%E5%8D%8F%E8%AE%AE-SOCKS5%20%2B%20%E7%B3%BB%E7%BB%9F%E4%BB%A3%E7%90%86-6b7280)](#原理)
 
 **手机连着 VPN，同一个 Wi-Fi 下的电脑就能直接借它出网。**
