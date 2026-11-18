@@ -1,13 +1,18 @@
 # Relay 中转 · 让电脑用上手机的 VPN
 
 [![最新版](https://img.shields.io/github/v/release/DeeJayX/relay?label=%E6%9C%80%E6%96%B0%E7%89%88&color=c98a3e)](https://github.com/DeeJayX/relay/releases/latest)
-[![平台](https://img.shields.io/badge/%E5%B9%B3%E5%8F%B0-iPhone%20%C2%B7%20Android%20%E2%86%92%20macOS%20%C2%B7%20Windows-4b5563)](#支持组合)
-[![协议](https://img.shields.io/badge/%E5%8D%8F%E8%AE%AE-SOCKS5%20%2B%20%E7%B3%BB%E7%BB%9F%E4%BB%A3%E7%90%86-6b7280)](#怎么做到的)
+[![平台](https://img.shields.io/badge/%E5%B9%B3%E5%8F%B0-iPhone%20%C2%B7%20Android%20%2B%20macOS%20%C2%B7%20Windows-4b5563)](#系统要求)
+[![协议](https://img.shields.io/badge/%E5%8D%8F%E8%AE%AE-SOCKS5%20%2B%20%E7%B3%BB%E7%BB%9F%E4%BB%A3%E7%90%86-6b7280)](#原理)
 
 **手机连着 VPN，同一个 Wi-Fi 下的电脑就能直接借它出网。**
 电脑上不用装 VPN，不用装代理软件，不用改路由，也不用开热点。
 
-> 适合这些时候：手机能上、电脑不能上；临时用别人的电脑；只想让电脑借用一会儿手机的网络，用完关掉就走。
+<p align="center">
+  <img src="docs/panel-macos.png" width="470" alt="macOS 客户端">
+  &nbsp;&nbsp;&nbsp;
+  <img src="docs/panel-ios.jpg" width="232" alt="iPhone 端">
+</p>
+<p align="center"><sub>左：电脑端（macOS）　右：手机端（iPhone）</sub></p>
 
 **[⬇ 下载最新版](../../releases/latest)**
 
@@ -29,18 +34,24 @@ Relay 换了个方向：**在手机上跑一个服务，替电脑发起连接**�
 2. **电脑**：连同一个 Wi-Fi → 打开客户端，手机会自动出现在设备列表里。
 3. **电脑**：开关拨到开，完成。
 
-面板上会直接显示当前出口 IP、归属地和端到端延迟，一眼能确认流量真的过去了。
+面板上会实时显示当前出口 IP、归属地和端到端延迟，一眼能确认流量真的过去了。
 
 macOS 从菜单栏操作（左键开关、右键面板）；Windows 双击 exe 打开原生窗口，托盘常驻。
 
 ---
 
-## 支持组合
+## 系统要求
 
-| 手机端 | 电脑端 |
+手机端和电脑端可以**任意组合**，不要求同一品牌：iPhone 配 Windows、安卓配 Mac 都行。
+
+| 端 | 要求 |
 |---|---|
-| iPhone（需 TrollStore） | macOS（Apple Silicon） |
-| Android 8.0+ | Windows 10 / 11（单文件 exe） |
+| iPhone | iOS 15 或更高 |
+| Android | Android 8.0 或更高 |
+| macOS | macOS 11 或更高（Apple 芯片） |
+| Windows | Windows 10 / 11（64 位） |
+
+两台设备需要在同一个局域网里。
 
 ---
 
@@ -51,36 +62,12 @@ macOS 从菜单栏操作（左键开关、右键面板）；Windows 双击 exe �
 - **智能分流** —— 内置国内域名规则，国内直连、其余走手机；也可以一键切全局
 - **掉线自愈** —— Wi-Fi 抖动不会立刻断，手机回来自动接回
 - **退出即还原** —— 关掉就把系统代理恢复原样，不给电脑留坑
+- **状态可见** —— 出口 IP / 归属地、端到端延迟、实时连接数
 - **四端一套协议** —— 手机是 iPhone 还是安卓、电脑是 Mac 还是 Windows，随便配
 
 ---
 
-## 常见问题
-
-**Telegram 连不上？**
-Telegram 桌面端有自己独立的代理开关，默认不一定跟随系统。在 Telegram 里改成：设置 → 高级 → 连接类型 → **使用系统代理设置**（不是「自定义代理」，不用填服务器和端口）。
-
-**游戏、语音通话为什么不行？**
-只代理 TCP。UDP 直连，所以游戏、语音、视频通话这类走 UDP 的用不上。
-
-**Firefox、终端命令要走吗？**
-读系统代理的程序自动生效；不读的程序需要自己在设置里填代理。想省事就把 Relay 切到全局模式。
-
-**找不到手机？**
-确认手机端开关已打开，并且两台设备在同一网段——访客网络和公司网络常开启设备隔离。
-
-**开了却打不开网页？**
-看电脑端的「出口位置」。如果和手机上的 VPN 出口不一致，先确认这个 VPN 会不会接管第三方进程的流量——有些 VPN 只接管系统浏览器，那种对 Relay 无效。
-
-**需要越狱或 Root 吗？**
-不需要。iPhone 靠 TrollStore 安装，Android 直接侧载。
-
-**安全吗？**
-手机端的 SOCKS5 不设认证，只在局域网内可用。别在公共 Wi-Fi 上长期开着。
-
----
-
-## 怎么做到的
+## 原理
 
 ```
 电脑应用 → 系统代理 → 电脑本地转发 → SOCKS5 → 手机 → VPN 隧道 → 互联网
@@ -98,9 +85,9 @@ Telegram 桌面端有自己独立的代理开关，默认不一定跟随系统�
 
 | 平台 | 文件 | 说明 |
 |---|---|---|
-| iPhone | `Relay-2.1.1.ipa` | 需 TrollStore，App Store 装不了 |
-| Android | `Relay-2.1.1.apk` | 直接侧载，Android 8.0+ |
-| macOS | `Relay-2.1.1-macos.dmg` | 拖进「应用程序」，Apple Silicon |
+| iPhone | `Relay-2.1.1.ipa` | 自签安装需带 Network Extension 权限 |
+| Android | `Relay-2.1.1.apk` | 直接侧载 |
+| macOS | `Relay-2.1.1-macos.dmg` | 拖进「应用程序」 |
 | Windows | `Relay-2.1.1-windows.exe` | 单文件，双击即用 |
 
 四个端是同一个版本。
