@@ -18,12 +18,12 @@ Relay 的做法是：**在手机上跑一个 SOCKS5 服务，替电脑发起连�
 
 | 平台 | 文件 | 说明 |
 |---|---|---|
-| iPhone | `Relay-2.0.0.ipa` | 需 TrollStore，App Store 装不了 |
-| Android | `Relay-2.0.0.apk` | 直接侧载，Android 8.0+ |
-| macOS | `Relay-2.0.0-macos.dmg` | 拖进「应用程序」，Apple Silicon |
-| Windows | `Relay-2.0.0-windows.exe` | 单文件，双击即用 |
+| iPhone | `Relay-2.1.0.ipa` | 需 TrollStore，App Store 装不了 |
+| Android | `Relay-2.1.0.apk` | 直接侧载，Android 8.0+ |
+| macOS | `Relay-2.1.0-macos.dmg` | 拖进「应用程序」，Apple Silicon |
+| Windows | `Relay-2.1.0-windows.exe` | 单文件，双击即用 |
 
-四个端是同一个版本 `2.0.0`。
+四个端是同一个版本 `2.1.0`。
 
 ## 三步开始
 
@@ -33,7 +33,7 @@ Relay 的做法是：**在手机上跑一个 SOCKS5 服务，替电脑发起连�
 
 > 手机端显示的出口 IP 若仍是运营商 IP，说明这个 VPN 不接管第三方进程的流量，本方案对它无效。
 
-macOS 用菜单栏操作（左键开关、右键面板）；Windows 启动后自动打开控制台 `127.0.0.1:18099`。
+macOS 用菜单栏操作（左键开关、右键面板）；Windows 双击 exe 打开原生窗口，托盘常驻（左键开关、右键菜单）。
 
 ## 能做什么
 
